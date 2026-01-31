@@ -235,6 +235,28 @@ input:focus {
   color: var(--muted);
 }
 
+.footer {
+  margin-top: 28px;
+  text-align: center;
+}
+
+.footer__link {
+  color: #1e4be8;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.footer__link:hover {
+  color: #1333a6;
+}
+
+.footer__link--inline {
+  text-align: left;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #2a4cd3;
+}
+
 @media (max-width: 520px) {
   .card {
     padding: 36px 24px;
