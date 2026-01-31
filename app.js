@@ -38,14 +38,15 @@ form.addEventListener("submit", async (event) => {
 
   const formData = new FormData(form);
   const phoneRaw = formData.get("phone")?.trim();
+  const consent = formData.get("consent");
   const payload = {
     name: formData.get("name")?.trim(),
     email: formData.get("email")?.trim(),
     phone: phoneRaw ? `+971 ${phoneRaw}` : "",
   };
 
-  if (!payload.name || !payload.email || !payload.phone) {
-    setError("Please complete all fields.");
+  if (!payload.name || !payload.email || !payload.phone || !consent) {
+    setError("Please complete all fields and accept the consent.");
     return;
   }
 
