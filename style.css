@@ -1,0 +1,233 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Manrope:wght@400;600&display=swap");
+
+:root {
+  color-scheme: light;
+  --ink: #1a1f2b;
+  --muted: #4d5866;
+  --paper: #fdf7f2;
+  --accent: #f4a261;
+  --accent-deep: #e76f51;
+  --accent-soft: #fce0c4;
+  --shadow: 0 30px 60px -40px rgba(26, 31, 43, 0.45);
+  --radius: 28px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Manrope", sans-serif;
+  background: radial-gradient(circle at top, #fff7ec 0%, #fef1e2 45%, #f2e6da 100%);
+  color: var(--ink);
+}
+
+.page {
+  display: grid;
+  place-items: center;
+  padding: 48px 20px;
+}
+
+.card {
+  position: relative;
+  width: min(520px, 100%);
+  background: var(--paper);
+  border-radius: var(--radius);
+  padding: 48px 36px 40px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.card__accent {
+  position: absolute;
+  inset: -40% 40% auto -20%;
+  height: 240px;
+  background: linear-gradient(120deg, var(--accent-soft), transparent 70%);
+  border-radius: 999px;
+  filter: blur(0);
+  z-index: -1;
+}
+
+.card__header h1 {
+  margin: 8px 0 12px;
+  font-family: "Fraunces", serif;
+  font-size: 2rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: var(--accent-deep);
+}
+
+.subhead {
+  margin: 0 0 28px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.form {
+  display: grid;
+  gap: 18px;
+}
+
+.panel-stack {
+  position: relative;
+  min-height: 360px;
+}
+
+.panel {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.panel.is-active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+  font-size: 0.95rem;
+}
+
+.field__label {
+  font-weight: 600;
+}
+
+input {
+  border: none;
+  border-radius: 16px;
+  background: #fff;
+  padding: 14px 16px;
+  font-size: 1rem;
+  box-shadow: inset 0 0 0 1px rgba(26, 31, 43, 0.12);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.phone-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px rgba(26, 31, 43, 0.12);
+  padding: 0 16px;
+}
+
+.phone-input__prefix {
+  color: rgba(26, 31, 43, 0.55);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.phone-input input {
+  padding: 14px 0;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  width: 100%;
+}
+
+.phone-input:focus-within {
+  box-shadow: inset 0 0 0 2px var(--accent-deep);
+  transform: translateY(-1px);
+}
+
+.phone-input input:focus {
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--accent-deep);
+  transform: translateY(-1px);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 16px;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  background: linear-gradient(120deg, var(--accent), var(--accent-deep));
+  color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -18px rgba(231, 111, 81, 0.8);
+}
+
+.button--ghost {
+  background: transparent;
+  color: var(--accent-deep);
+  box-shadow: inset 0 0 0 1px rgba(231, 111, 81, 0.4);
+}
+
+.form__error {
+  margin: 0;
+  color: #b00020;
+  font-size: 0.9rem;
+  min-height: 1.2em;
+}
+
+.success {
+  text-align: center;
+  display: grid;
+  gap: 12px;
+  padding: 24px 0 8px;
+}
+
+.success__tag {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+  color: var(--accent-deep);
+  font-size: 0.75rem;
+}
+
+.success h2 {
+  font-family: "Fraunces", serif;
+  margin: 0;
+  font-size: 1.9rem;
+}
+
+.success__text {
+  margin: 0;
+  color: var(--muted);
+}
+
+@media (max-width: 520px) {
+  .card {
+    padding: 36px 24px;
+  }
+
+  .card__header h1 {
+    font-size: 1.75rem;
+  }
+}
