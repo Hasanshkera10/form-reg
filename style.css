@@ -56,9 +56,17 @@ body {
 }
 
 .card__header h1 {
-  margin: 8px 0 12px;
+  margin: 0 0 18px;
   font-family: "Fraunces", serif;
   font-size: 2rem;
+}
+
+.header-logo {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  display: block;
+  margin: 0 auto 50px;
 }
 
 .eyebrow {
